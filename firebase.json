@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewtires": [
+      {
+        "source": "/signup",
+        "destination": "/signup.html"
+      }
+    ]
+  }
+}

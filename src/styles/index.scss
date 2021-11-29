@@ -1,0 +1,135 @@
+@import "variables";
+@import "nullify";
+
+.container {
+  height: 100%;
+  width: 100%;
+  max-width: 675px;
+  margin: 0 auto;
+}
+
+.auth-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  position: relative;
+  padding-top: 40px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    height: 1px;
+    width: 80%;
+    background-color: #888;
+  }
+}
+
+.btn {
+  background-image: linear-gradient(
+    92.88deg,
+    #455eb5 9.16%,
+    #5643cc 43.89%,
+    #673fd7 64.72%
+  );
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 500;
+  height: 4rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  &:hover {
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+    transition-duration: 0.1s;
+  }
+}
+
+.form-container {
+  padding: 40px 30px 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 615px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-item {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+input {
+  font-size: 16px;
+  border: 2px solid gray;
+  width: 100%;
+  color: black;
+  height: 44px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+input.error {
+  border-color: red;
+}
+
+input:hover {
+  border-color: #455eb5;
+}
+
+.validations-error {
+  font-size: 12px;
+  color: red;
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+}
+
+.popup-container {
+  position: absolute;
+  top: -20px;
+  left: 150px;
+  z-index: 2;
+  border-radius: 5px;
+  background: linear-gradient(
+    45deg,
+    rgba(2, 170, 176, 0.2),
+    rgba(0, 205, 172, 0.2)
+  );
+  padding: 10px;
+  transition: all 0.5s;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 0 2.6rem;
+  }
+}
