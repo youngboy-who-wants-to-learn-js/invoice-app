@@ -43,7 +43,10 @@ signInButton.addEventListener("click", signInWithGoogle);
 signOutButton.addEventListener("click", signOutGoogle);
 //TODO new Date(2021, 11 , 0).getDate()
 //TODO 3 месяца назад, 3 вперед
-//TODO брать с локал сторедж прошлый месяц и подставлять текущий
-//TODO add env
 //TODO clean form after submit
 //TODO add local storage
+//TODO read about  html class naming and refactor
+//TODO renderHeader(user) renderForm(user) => render() { 2 func } | make renders.js
+//TODO read if node.remove() eventListener remove too ?
+//TODO take logo from firebase user information
+//TODO try assets/logo.svg after fix

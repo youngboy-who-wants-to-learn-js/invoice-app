@@ -1,5 +1,5 @@
-@mixin component-container {
-  padding: 40px 30px;
+@mixin component-container($topBottom: 40px) {
+  padding: $topBottom 30px;
   margin: 0 auto;
   width: 100%;
   max-width: 615px;
