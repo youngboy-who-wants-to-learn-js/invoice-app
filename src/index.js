@@ -1,23 +1,41 @@
 import "@/styles/index.scss";
 
 import { onSubmit, onBlurName } from "./scripts/handlers";
-import { showFormTemplate, removeFormTemplate } from "./scripts/helpers";
+import { showTemplate, hideTemplate } from "./scripts/helpers";
 import { signInWithGoogle, signOutGoogle, auth } from "./scripts/firebase";
+import { TEMPLATE_DATA } from "./scripts/constants";
 
 const signInButton = document.querySelector("#google-sign-in");
 const signOutButton = document.querySelector("#google-sing-out");
 
 auth.onAuthStateChanged((user) => {
   if (user) {
-    showFormTemplate();
+    const lockContainer = document.querySelector(
+      TEMPLATE_DATA.lockTemplate.containerId
+    );
+    showTemplate(
+      TEMPLATE_DATA.formTemplate.templateId,
+      TEMPLATE_DATA.formTemplate.templateContainerId
+    );
+    if (lockContainer) {
+      hideTemplate(TEMPLATE_DATA.lockTemplate.containerId);
+    }
+
     const form = document.querySelector("#form");
     form.addEventListener("submit", onSubmit);
     form.name.addEventListener("blur", onBlurName(form));
   } else {
-    const formContainer = document.querySelector("#form-container");
+    const formContainer = document.querySelector(
+      TEMPLATE_DATA.formTemplate.containerId
+    );
+
     if (formContainer) {
-      removeFormTemplate();
+      hideTemplate(TEMPLATE_DATA.formTemplate.containerId);
     }
+    showTemplate(
+      TEMPLATE_DATA.lockTemplate.templateId,
+      TEMPLATE_DATA.lockTemplate.templateContainerId
+    );
   }
 });
 

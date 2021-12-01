@@ -12,17 +12,17 @@ export const hidePopUp = (element) => {
   popUp.remove();
 };
 
-export const showFormTemplate = () => {
-  const formTemplate = document.querySelector("#form-template");
-  const container = document.querySelector("#template-container");
-  const clone = formTemplate.content.cloneNode(true);
+export const showTemplate = (templateId, templateContainerId) => {
+  const template = document.querySelector(templateId);
+  const container = document.querySelector(templateContainerId);
+  const clone = template.content.cloneNode(true);
 
   container.append(clone);
 };
 
-export const removeFormTemplate = () => {
-  const formContainer = document.querySelector("#form-container");
-  formContainer.remove();
+export const hideTemplate = (containerId) => {
+  const container = document.querySelector(containerId);
+  container.remove();
 };
 
 export const validators = {

@@ -166,3 +166,16 @@ export const useMonthToLastDay = (year) => {
 };
 
 export const MAP_NUMBER_TO_MONTH = Object.freeze(_mapNumberToMonth);
+
+export const TEMPLATE_DATA = {
+  formTemplate: {
+    templateId: "#form-template",
+    templateContainerId: "#template-container",
+    containerId: "#form-container",
+  },
+  lockTemplate: {
+    templateId: "#lock-template",
+    templateContainerId: "#template-container",
+    containerId: "#lock-container",
+  },
+};

@@ -16,8 +16,17 @@
         <button id="google-sign-in" class="btn">Login</button>
         <button id="google-sing-out" class="btn">Log out</button>
       </div>
-      <div class="header">Generate Invoice</div>
+      <div class="header-container">
+        <div class="header">Generate Invoice</div>
+      </div>
+
       <div id="template-container">
+        <template id="lock-template">
+          <div id="lock-container" class="lock-container">
+            <div id="lock" class="download-not-allowed"></div>
+          </div>
+        </template>
+
         <template id="form-template">
           <div id="form-container" class="form-container">
             <form action="#" class="form" id="form">
@@ -75,7 +84,7 @@
 
     <template id="payment-popup-notice">
       <div id="payment-popup" class="popup-container">
-        <div>Please check the correctness</div>
+        <div>Please check if this is correct</div>
       </div>
     </template>
   </body>
