@@ -1,4 +1,4 @@
-export const showPopUp = (element) => {
+export const showPaymentPopUp = (element) => {
   const popUpTemplate = document.querySelector("#payment-popup-notice");
   const clone = popUpTemplate.content.cloneNode(true);
   const popUp = document.querySelector("#payment-popup");
@@ -7,9 +7,11 @@ export const showPopUp = (element) => {
   }
 };
 
-export const hidePopUp = (element) => {
+export const hidePaymentPopUp = () => {
   const popUp = document.querySelector("#payment-popup");
-  popUp.remove();
+  if (popUp) {
+    popUp.remove();
+  }
 };
 
 export const showTemplate = (templateId, templateContainerId) => {
@@ -25,33 +27,15 @@ export const hideTemplate = (containerId) => {
   container.remove();
 };
 
-export const validators = {
-  required: (value) => {
-    const val = value.trim();
-    if (val && val.length !== 0) {
-      return true;
-    }
-
-    return false;
-  },
-};
-
-export const validatorsResolvers = {
-  valid: (input) => {
-    const nextElem = input.nextElementSibling;
-
-    if (nextElem) {
-      nextElem.remove();
-      input.classList.remove("error");
+export const cx = {
+  add: (elem, className) => {
+    if (!elem.classList.contains(className)) {
+      elem.classList.add(className);
     }
   },
-  invalid: (input) => {
-    const parent = input.closest("div");
-    const div = document.createElement("div");
-    div.classList.add("validations-error");
-    div.innerText = "This is required field";
-
-    input.classList.add("error");
-    parent.append(div);
+  remove: (elem, className) => {
+    if (elem.classList.contains(className)) {
+      elem.classList.remove(className);
+    }
   },
 };

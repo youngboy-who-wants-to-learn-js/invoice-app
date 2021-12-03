@@ -132,7 +132,7 @@ export const TextConfiguration = (tahomaBold, calibriBold, timesRoman) => ({
   },
 });
 
-const _mapNumberToMonth = {
+const mapNumberToMonth = {
   1: "January",
   2: "February",
   3: "March",
@@ -165,7 +165,7 @@ export const useMonthToLastDay = (year) => {
   };
 };
 
-export const MAP_NUMBER_TO_MONTH = Object.freeze(_mapNumberToMonth);
+export const MAP_NUMBER_TO_MONTH = Object.freeze(mapNumberToMonth);
 
 export const TEMPLATE_DATA = {
   formTemplate: {
@@ -179,3 +179,6 @@ export const TEMPLATE_DATA = {
     containerId: "#lock-container",
   },
 };
+
+export const classNameBtnHidden = "btn_hidden";
+export const classNameProfileHidden = "profile-info_hidden";

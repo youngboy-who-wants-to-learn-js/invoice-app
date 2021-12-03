@@ -1,0 +1,16 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "airbnb", "eslint-config-prettier"],
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "plugins": ["eslint-plugin-prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "quotes": [2, "double"]
+  }
+}

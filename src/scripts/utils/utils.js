@@ -6,12 +6,12 @@ const parseDate = (date) => {
   return { month, day: useMonthToLastDay(year)[month], year };
 };
 
-const dateParserWrapper = (fn) => {
-  return (date, ...params) => {
+const dateParserWrapper =
+  (fn) =>
+  (date, ...params) => {
     const parsedDate = parseDate(date);
     return fn(parsedDate, ...params);
   };
-};
 
 export const getFullDate = dateParserWrapper(
   (date) => `${date.day}.${date.month}.${date.year}`

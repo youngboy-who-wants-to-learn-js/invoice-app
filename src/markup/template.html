@@ -3,8 +3,7 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
-    />
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="HandheldFriendly" content="true" />
@@ -12,22 +11,22 @@
 
   <body>
     <div id="container" class="container">
-      <!-- <div class="auth-wrapper">
-        <button id="google-sign-in" class="btn">Login</button>
-        <button id="google-sing-out" class="btn">Log out</button>
-      </div> -->
-
-      <!-- header => header-title -> header-profile-logo -->
       <div class="header-container">
-        <div class="header">Generate Invoice</div>
-        <div class="profile-logo-container">
-          <div class="profile-logo-image"></div>
-          <div class="profile-email">
+        <div class="header__title">Generate Invoice</div>
+        <div class="profile-info">
+          <div id="profile__image" class="profile-info__image"></div>
+          <img
+            id="profile__photo"
+            class="profile-info__photo profile-info_hidden"
+            alt="profile image"
+            src="https://lh3.googleusercontent.com/a-/AOh14Ghsq7P9OOWlJoFwMJoQIPyg6rX_eyTyUi4l8uQk=s96-c" />
+          <div id="profile__email" class="profile-info__email">
             <span>vlad.zahr@devico.io</span>
           </div>
         </div>
-        <div class="header-btn">
-          <button id="google-sing-out" class="btn">Log out</button>
+        <div class="header__btn">
+          <button id="google-sign-in" class="btn">Login</button>
+          <button id="google-sing-out" class="btn btn_hidden">Log out</button>
         </div>
       </div>
 
@@ -41,39 +40,36 @@
         <template id="form-template">
           <div id="form-container" class="form-container">
             <form action="#" class="form" id="form">
-              <div class="form-item">
+              <div class="form__item">
                 <label for="name">First name & Last name:</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Please enter your first and last name..."
-                />
+                  placeholder="Please enter your first and last name..." />
                 <!-- <div class="validations-error">This is required field</div> -->
               </div>
 
-              <div class="form-item">
+              <div class="form__item">
                 <label for="payment">Payment details:</label>
                 <input
                   type="text"
                   id="payment"
                   name="payment"
-                  placeholder="Enter your payment details..."
-                />
+                  placeholder="Enter your payment details..." />
               </div>
 
-              <div class="form-item">
+              <div class="form__item">
                 <label for="amount">Total amount:</label>
                 <input
                   type="number"
                   step="any"
                   id="amount"
                   name="amount"
-                  placeholder="Enter your total amount..."
-                />
+                  placeholder="Enter your total amount..." />
               </div>
 
-              <div class="form-item">
+              <div class="form__item">
                 <label for="date"
                   >Date: (The last day of the selected month will be taken
                   automatically)</label
@@ -82,8 +78,7 @@
                   type="date"
                   id="date"
                   name="date"
-                  placeholder="Enter date..."
-                />
+                  placeholder="Enter date..." />
               </div>
 
               <button type="submit" class="btn">Download pdf</button>

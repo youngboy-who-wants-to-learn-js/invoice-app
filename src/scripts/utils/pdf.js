@@ -4,18 +4,11 @@ import download from "downloadjs";
 
 import { LineConfiguration, TextConfiguration } from "./constants";
 import * as DateHelpers from "./utils";
-import { makePaymentValue } from "./utils";
-import {
-  validators,
-  validatorsResolvers,
-  hidePopUp,
-  showPopUp,
-} from "./helpers";
 
-import TahomaBold from "../fonts/TahomaBold.ttf";
-import CalibriBold from "../fonts/calibri_bold.ttf";
+import TahomaBold from "../../fonts/TahomaBold.ttf";
+import CalibriBold from "../../fonts/calibri_bold.ttf";
 
-async function createPdf({ name, payment, amount, date }) {
+export default async function createPdf({ name, payment, amount, date }) {
   const myPdfDoc = await PDFDocument.create();
 
   const resFonts = await fetch(TahomaBold);
@@ -104,40 +97,3 @@ async function createPdf({ name, payment, amount, date }) {
     "application/pdf"
   );
 }
-
-export async function onSubmit(e) {
-  const fields = document.querySelectorAll("#form > .form-item > input");
-  e.preventDefault();
-  const pdfData = {};
-  let isValid = true;
-
-  fields.forEach((input) => {
-    if (validators.required(input.value)) {
-      validatorsResolvers.valid(input);
-      pdfData[input.name] = input.value;
-    } else {
-      isValid = false;
-      validatorsResolvers.invalid(input);
-    }
-  });
-
-  if (isValid) {
-    await createPdf(pdfData);
-  }
-}
-
-export const onBlurName = (form) => () => {
-  const value = form.name.value;
-  if (value) {
-    const closestElem = form.payment.closest("div");
-    form.payment.value = makePaymentValue(value);
-    form.payment.style.border = "3px solid green";
-
-    showPopUp(closestElem, true);
-
-    setTimeout(() => {
-      form.payment.style.border = "2px solid gray";
-      hidePopUp(closestElem);
-    }, 2000);
-  }
-};
