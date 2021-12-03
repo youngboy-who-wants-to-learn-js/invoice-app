@@ -46,6 +46,7 @@
                   type="text"
                   id="name"
                   name="name"
+                  class="form__item-text"
                   placeholder="Please enter your first and last name..." />
                 <!-- <div class="validations-error">This is required field</div> -->
               </div>
@@ -56,6 +57,7 @@
                   type="text"
                   id="payment"
                   name="payment"
+                  class="form__item-text"
                   placeholder="Enter your payment details..." />
               </div>
 
@@ -66,11 +68,12 @@
                   step="any"
                   id="amount"
                   name="amount"
+                  class="form__item-text"
                   placeholder="Enter your total amount..." />
               </div>
 
               <div class="form__item">
-                <label for="date"
+                <!-- <label for="date"
                   >Date: (The last day of the selected month will be taken
                   automatically)</label
                 >
@@ -78,10 +81,22 @@
                   type="date"
                   id="date"
                   name="date"
-                  placeholder="Enter date..." />
+                  placeholder="Enter date..." /> -->
+                <label class="form__radio-label">
+                  <input type="radio" name="radio" value="1" checked />
+                  <span>HTML</span>
+                </label>
+                <label class="form__radio-label">
+                  <input type="radio" name="radio" value="2" />
+                  <span>CSS</span>
+                </label>
+                <label class="form__radio-label">
+                  <input type="radio" name="radio" value="3" />
+                  <span>Javascript</span>
+                </label>
               </div>
 
-              <button type="submit" class="btn">Download pdf</button>
+              <button type="submit" class="btn">Download PDF</button>
             </form>
           </div>
         </template>

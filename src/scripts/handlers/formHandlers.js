@@ -6,6 +6,11 @@ import { hidePaymentPopUp, showPaymentPopUp } from "../utils/dom";
 
 export async function onSubmit(e) {
   const fields = document.querySelectorAll("#form > .form__item > input");
+  // const form = document.querySelector("#form");
+  // const formData = new FormData(form);
+  // for (const entry of formData) {
+  //   console.log(entry[0] + "=" + entry[1]);
+  // }
   e.preventDefault();
   const pdfData = {};
   let isValid = true;

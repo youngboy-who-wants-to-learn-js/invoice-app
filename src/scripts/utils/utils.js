@@ -43,3 +43,22 @@ export const getAmount = (amount) => {
 
 export const makePaymentValue = (value) =>
   `${value.split(" ").reverse().join("")}Helen`;
+
+const getMonthYearFromDate = (date) => ({
+  month: date.getMonth() + 1,
+  year: date.getFullYear(),
+});
+
+const minusMonth = (date, num) =>
+  new Date(date.setMonth(date.getMonth() - num));
+
+// return Array<{month: string, year: number}>
+export const generatePeriod = () => {
+  const MONTH_NUMBER = 6;
+  return [...Array(MONTH_NUMBER)]
+    .map((_, i) => MONTH_NUMBER - 1 - i)
+    .reduce((acc, item) => {
+      const expiredDate = minusMonth(new Date(), item);
+      return acc.concat(getMonthYearFromDate(expiredDate));
+    }, []);
+};
