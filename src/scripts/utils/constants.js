@@ -182,3 +182,4 @@ export const TEMPLATE_DATA = {
 
 export const classNameBtnHidden = "btn_hidden";
 export const classNameProfileHidden = "profile-info_hidden";
+export const classNameRadioLabel = "form__item-radio-label";

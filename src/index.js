@@ -18,3 +18,4 @@ signInButton.addEventListener("click", signInWithGoogle);
 //TODO add local storage
 //TODO сделать useQuerySelector, который будет доставать document.querySelector(), но не вызывать
 //TODO use FormData -> onSubmit
+//TODO handle errors firebase

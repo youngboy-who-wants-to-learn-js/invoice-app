@@ -1,6 +1,7 @@
+import renderInputRadio from "./renderInputRadio";
 import { onSubmit, onBlurName } from "../handlers/formHandlers";
-import { showTemplate, hideTemplate } from "../utils/dom";
-import { TEMPLATE_DATA } from "../utils/constants";
+import { showTemplate, hideTemplate, TEMPLATE_DATA } from "../utils";
+// import { TEMPLATE_DATA } from "../utils/constants";
 
 const renderForm = (user) => {
   if (user) {
@@ -18,6 +19,7 @@ const renderForm = (user) => {
     const form = document.querySelector("#form");
     form.addEventListener("submit", onSubmit);
     form.name.addEventListener("blur", onBlurName);
+    renderInputRadio();
   } else {
     const formContainer = document.querySelector(
       TEMPLATE_DATA.formTemplate.containerId

@@ -1,8 +1,11 @@
-import createPdf from "../utils/pdf";
-
-import { makePaymentValue } from "../utils/utils";
-import { validators, validatorsResolvers } from "../utils/validators";
-import { hidePaymentPopUp, showPaymentPopUp } from "../utils/dom";
+import {
+  makePaymentValue,
+  validators,
+  validatorsResolvers,
+  hidePaymentPopUp,
+  showPaymentPopUp,
+  createPdf,
+} from "../utils";
 
 export async function onSubmit(e) {
   const fields = document.querySelectorAll("#form > .form__item > input");
@@ -11,6 +14,7 @@ export async function onSubmit(e) {
   // for (const entry of formData) {
   //   console.log(entry[0] + "=" + entry[1]);
   // }
+
   e.preventDefault();
   const pdfData = {};
   let isValid = true;

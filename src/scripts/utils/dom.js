@@ -1,3 +1,5 @@
+import { classNameRadioLabel } from "./constants";
+
 export const showPaymentPopUp = (element) => {
   const popUpTemplate = document.querySelector("#payment-popup-notice");
   const clone = popUpTemplate.content.cloneNode(true);
@@ -38,4 +40,24 @@ export const cx = {
       elem.classList.remove(className);
     }
   },
+};
+
+export const createRadioFormItem = (
+  inputValue = "",
+  checked = false,
+  title = ""
+) => {
+  const label = document.createElement("label");
+  label.classList.add(classNameRadioLabel);
+
+  const input = document.createElement("input");
+  input.type = "radio";
+  input.name = "date";
+  input.value = inputValue;
+  input.checked = checked;
+
+  const span = document.createElement("span");
+  span.textContent = title;
+  label.append(input, span);
+  return label;
 };
