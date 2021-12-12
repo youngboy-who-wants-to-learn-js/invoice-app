@@ -184,6 +184,7 @@ body {
   &__radio-labels-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 20px;
   }
 }
 
@@ -194,7 +195,7 @@ label {
 }
 
 input.error {
-  border-color: red;
+  border-color: red !important;
 }
 
 input:hover {
@@ -206,7 +207,7 @@ input:hover {
   color: red;
   position: absolute;
   bottom: 0;
-  left: 2px;
+  left: 10px;
 }
 
 .popup-container {

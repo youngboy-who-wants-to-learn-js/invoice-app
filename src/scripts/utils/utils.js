@@ -1,9 +1,12 @@
-import { MAP_NUMBER_TO_MONTH, useMonthToLastDay } from "./constants";
+import { MAP_NUMBER_TO_MONTH } from "./constants";
+
+export const getLastMonthDay = (year, month) =>
+  new Date(year, month, 0).getDate();
 
 // yyyy-month-day
 const parseDate = (date) => {
   const [year, month] = date.split("-");
-  return { month, day: useMonthToLastDay(year)[month], year };
+  return { month, day: getLastMonthDay(year, month), year };
 };
 
 const dateParserWrapper =

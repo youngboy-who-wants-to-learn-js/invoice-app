@@ -40,6 +40,7 @@ export const cx = {
       elem.classList.remove(className);
     }
   },
+  has: (elem, className) => elem.classList.contains(className),
 };
 
 export const createRadioFormItem = (
@@ -61,3 +62,13 @@ export const createRadioFormItem = (
   label.append(input, span);
   return label;
 };
+
+export const createErrorMessageElement = () => {
+  const div = document.createElement("div");
+  div.classList.add("validations-error");
+  div.innerText = "This is required field";
+  return div;
+};
+
+export const getInputByName = (intputName) =>
+  document.querySelector(`[name=${intputName}]`);

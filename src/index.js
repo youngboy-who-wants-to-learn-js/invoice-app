@@ -12,10 +12,8 @@ auth.onAuthStateChanged((user) => {
 });
 signOutButton.addEventListener("click", signOutGoogle);
 signInButton.addEventListener("click", signInWithGoogle);
-//TODO new Date(2021, 11 , 0).getDate()
-//TODO change input type date on 6 radio buttton with 6 month before
+//TODO add text error message
 //TODO clean form after submit
 //TODO add local storage
 //TODO сделать useQuerySelector, который будет доставать document.querySelector(), но не вызывать
-//TODO use FormData -> onSubmit
 //TODO handle errors firebase

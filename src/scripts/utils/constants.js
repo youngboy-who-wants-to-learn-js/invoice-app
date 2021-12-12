@@ -147,24 +147,6 @@ const mapNumberToMonth = {
   12: "December",
 };
 
-export const useMonthToLastDay = (year) => {
-  const isLeapYear = Number(year) % 4 === 0;
-  return {
-    1: 31,
-    2: isLeapYear ? 29 : 28,
-    3: 31,
-    4: 30,
-    5: 31,
-    6: 30,
-    7: 31,
-    8: 31,
-    9: 30,
-    10: 31,
-    11: 30,
-    12: 31,
-  };
-};
-
 export const MAP_NUMBER_TO_MONTH = Object.freeze(mapNumberToMonth);
 
 export const TEMPLATE_DATA = {
@@ -183,3 +165,5 @@ export const TEMPLATE_DATA = {
 export const classNameBtnHidden = "btn_hidden";
 export const classNameProfileHidden = "profile-info_hidden";
 export const classNameRadioLabel = "form__item-radio-label";
+
+export const fields = ["name", "payment", "amount", "date"];

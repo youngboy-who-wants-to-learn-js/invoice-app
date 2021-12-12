@@ -1,33 +1,32 @@
 import {
   makePaymentValue,
-  validators,
+  formValidator,
   validatorsResolvers,
   hidePaymentPopUp,
   showPaymentPopUp,
   createPdf,
+  fields,
 } from "../utils";
 
 export async function onSubmit(e) {
-  const fields = document.querySelectorAll("#form > .form__item > input");
-  // const form = document.querySelector("#form");
-  // const formData = new FormData(form);
-  // for (const entry of formData) {
-  //   console.log(entry[0] + "=" + entry[1]);
-  // }
-
   e.preventDefault();
+  const form = document.querySelector("#form");
+  const formData = new FormData(form);
   const pdfData = {};
   let isValid = true;
 
-  fields.forEach((input) => {
-    if (validators.required(input.value)) {
-      validatorsResolvers.valid(input);
-      pdfData[input.name] = input.value;
+  fields.forEach((field) => {
+    const value = formData.get(field);
+    console.log(`name:${field} value: ${value}`);
+    if (formValidator(field, value)) {
+      validatorsResolvers.valid(field);
+      pdfData[field] = value;
     } else {
       isValid = false;
-      validatorsResolvers.invalid(input);
+      validatorsResolvers.invalid(field);
     }
   });
+
   if (isValid) {
     await createPdf(pdfData);
   }

@@ -1,11 +1,14 @@
 import {
   generatePeriod,
   createRadioFormItem,
-  // useMonthToLastDay,
   MAP_NUMBER_TO_MONTH,
 } from "../utils";
 
-//TODO check if child elements need to be removed before redrawing
+// <label class="form__item-radio-label">
+//   <input type="radio" name="date" value="1" />
+//   <span>HTML</span>
+// </label>
+
 const renderInputRadio = () => {
   const radioInputsContainer = document.querySelector(
     "#radio-labels-container"
@@ -15,7 +18,7 @@ const renderInputRadio = () => {
   const radioInputsElements = period.map(({ month, year }) =>
     createRadioFormItem(
       `${year}-${month}`,
-      month === currentMonth,
+      currentMonth === month,
       `${MAP_NUMBER_TO_MONTH[month]} ${year}`
     )
   );

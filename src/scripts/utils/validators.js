@@ -1,5 +1,11 @@
+import { createErrorMessageElement, getInputByName, cx } from "./dom";
+
 export const validators = {
-  required: (value) => {
+  required(value) {
+    if (typeof value !== "string") {
+      return false;
+    }
+
     const val = value.trim();
     if (val && val.length !== 0) {
       return true;
@@ -7,24 +13,49 @@ export const validators = {
 
     return false;
   },
+  number(value) {
+    const numberFromString = parseInt(value, 10);
+    // eslint-disable-next-line no-restricted-globals
+    if (isNaN(numberFromString)) {
+      return false;
+    }
+    if (numberFromString < 1) {
+      return false;
+    }
+    return true;
+  },
+};
+
+export const formValidator = (fieldName, val) => {
+  if (!validators.required(val)) {
+    return false;
+  }
+  if (fieldName === "amount") {
+    if (!validators.number(val)) {
+      return false;
+    }
+  }
+  return true;
 };
 
 export const validatorsResolvers = {
-  valid: (input) => {
-    const nextElem = input.nextElementSibling;
+  valid: (inputName) => {
+    const input = getInputByName(inputName);
+    cx.remove(input, "error");
 
-    if (nextElem) {
-      nextElem.remove();
-      input.classList.remove("error");
+    const parent = input.closest(".form__item");
+    const { lastElementChild } = parent;
+    if (lastElementChild && cx.has(lastElementChild, "validations-error")) {
+      lastElementChild.remove();
     }
   },
-  invalid: (input) => {
-    const parent = input.closest("div");
-    const div = document.createElement("div");
-    div.classList.add("validations-error");
-    div.innerText = "This is required field";
+  invalid: (inputName) => {
+    const input = getInputByName(inputName);
 
-    input.classList.add("error");
+    const parent = input.closest(".form__item");
+    const div = createErrorMessageElement();
+
+    cx.add(input, "error");
     parent.append(div);
   },
 };
