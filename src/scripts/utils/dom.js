@@ -72,3 +72,13 @@ export const createErrorMessageElement = () => {
 
 export const getInputByName = (intputName) =>
   document.querySelector(`[name=${intputName}]`);
+
+export const clearForm = (form) => {
+  for (let input of form.elements) {
+    if (input.type === "radio") {
+      input.checked = false;
+    } else {
+      input.value = "";
+    }
+  }
+};

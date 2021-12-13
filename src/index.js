@@ -13,7 +13,34 @@ auth.onAuthStateChanged((user) => {
 signOutButton.addEventListener("click", signOutGoogle);
 signInButton.addEventListener("click", signInWithGoogle);
 //TODO add text error message
-//TODO clean form after submit
-//TODO add local storage
+//TODO add local storage with crypto
 //TODO сделать useQuerySelector, который будет доставать document.querySelector(), но не вызывать
 //TODO handle errors firebase
+
+// const encode = (data) => {
+//   const encoder = new TextEncoder();
+
+//   return encoder.encode(data);
+// };
+
+// const generateIv = () => {
+//   return crypto.getRandomValues(new Uint8Array(12));
+// };
+
+// const encrypt = async (data, key) => {
+//   const encoded = encode(data);
+//   const iv = generateIv();
+//   const cipher = await crypto.subtle.encrypt(
+//     {
+//       name: "AES-GCM",
+//       iv: iv,
+//     },
+//     key,
+//     encoded
+//   );
+
+//   return {
+//     cipher,
+//     iv,
+//   };
+// };

@@ -6,6 +6,7 @@ import {
   showPaymentPopUp,
   createPdf,
   fields,
+  clearForm,
 } from "../utils";
 
 export async function onSubmit(e) {
@@ -29,6 +30,7 @@ export async function onSubmit(e) {
 
   if (isValid) {
     await createPdf(pdfData);
+    clearForm(form);
   }
 }
 
