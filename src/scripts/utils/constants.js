@@ -167,3 +167,8 @@ export const classNameProfileHidden = "profile-info_hidden";
 export const classNameRadioLabel = "form__item-radio-label";
 
 export const fields = ["name", "payment", "amount", "date"];
+
+export const ERROR_MESSAGE = {
+  required: "This is required field",
+  lessZero: "Number cannot be less than 0",
+};

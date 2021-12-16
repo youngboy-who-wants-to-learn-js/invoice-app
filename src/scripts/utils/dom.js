@@ -1,4 +1,4 @@
-import { classNameRadioLabel } from "./constants";
+import { classNameRadioLabel, ERROR_MESSAGE } from "./constants";
 
 export const showPaymentPopUp = (element) => {
   const popUpTemplate = document.querySelector("#payment-popup-notice");
@@ -63,10 +63,10 @@ export const createRadioFormItem = (
   return label;
 };
 
-export const createErrorMessageElement = () => {
+export const createErrorMessageElement = (errorName) => {
   const div = document.createElement("div");
   div.classList.add("validations-error");
-  div.innerText = "This is required field";
+  div.innerText = errorName || ERROR_MESSAGE.required;
   return div;
 };
 

@@ -1,3 +1,4 @@
+import { ERROR_MESSAGE } from "./constants";
 import { createErrorMessageElement, getInputByName, cx } from "./dom";
 
 export const validators = {
@@ -26,12 +27,14 @@ export const validators = {
   },
 };
 
-export const formValidator = (fieldName, val) => {
+export const formValidator = (fieldName, val, setErrors) => {
   if (!validators.required(val)) {
+    setErrors(fieldName, ERROR_MESSAGE.required);
     return false;
   }
   if (fieldName === "amount") {
     if (!validators.number(val)) {
+      setErrors(fieldName, ERROR_MESSAGE.lessZero);
       return false;
     }
   }
@@ -42,18 +45,23 @@ export const validatorsResolvers = {
   valid: (inputName) => {
     const input = getInputByName(inputName);
     cx.remove(input, "error");
-
     const parent = input.closest(".form__item");
+
     const { lastElementChild } = parent;
     if (lastElementChild && cx.has(lastElementChild, "validations-error")) {
       lastElementChild.remove();
     }
   },
-  invalid: (inputName) => {
+  invalid: (inputName, errors) => {
     const input = getInputByName(inputName);
 
     const parent = input.closest(".form__item");
-    const div = createErrorMessageElement();
+    const div = createErrorMessageElement(errors[inputName]);
+
+    const { lastElementChild } = parent;
+    if (lastElementChild && cx.has(lastElementChild, "validations-error")) {
+      lastElementChild.remove();
+    }
 
     cx.add(input, "error");
     parent.append(div);

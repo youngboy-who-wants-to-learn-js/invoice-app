@@ -7,6 +7,7 @@ import {
   createPdf,
   fields,
   clearForm,
+  useErrors,
 } from "../utils";
 
 export async function onSubmit(e) {
@@ -14,22 +15,35 @@ export async function onSubmit(e) {
   const form = document.querySelector("#form");
   const formData = new FormData(form);
   const pdfData = {};
+  const initialErrors = {
+    name: "",
+    payment: "",
+    amount: "",
+    date: "",
+  };
+  const { errors, setErrors, cleanErrors } = useErrors(initialErrors);
+
   let isValid = true;
 
   fields.forEach((field) => {
     const value = formData.get(field);
-    console.log(`name:${field} value: ${value}`);
-    if (formValidator(field, value)) {
+    if (formValidator(field, value, setErrors)) {
       validatorsResolvers.valid(field);
-      pdfData[field] = value;
+
+      if (field === "amount") {
+        pdfData[field] = parseInt(value);
+      } else {
+        pdfData[field] = value;
+      }
     } else {
       isValid = false;
-      validatorsResolvers.invalid(field);
+      validatorsResolvers.invalid(field, errors);
     }
   });
 
   if (isValid) {
     await createPdf(pdfData);
+    cleanErrors();
     clearForm(form);
   }
 }
