@@ -15,7 +15,7 @@ export const validators = {
     return false;
   },
   number(value) {
-    const numberFromString = parseInt(value, 10);
+    const numberFromString = parseFloat(value, 10);
     // eslint-disable-next-line no-restricted-globals
     if (isNaN(numberFromString)) {
       return false;

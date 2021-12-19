@@ -31,7 +31,7 @@ export async function onSubmit(e) {
       validatorsResolvers.valid(field);
 
       if (field === "amount") {
-        pdfData[field] = parseInt(value);
+        pdfData[field] = parseFloat(value);
       } else {
         pdfData[field] = value;
       }
@@ -42,6 +42,8 @@ export async function onSubmit(e) {
   });
 
   if (isValid) {
+    localStorage.setItem("name", pdfData.name);
+    localStorage.setItem("payment", pdfData.payment);
     await createPdf(pdfData);
     cleanErrors();
     clearForm(form);

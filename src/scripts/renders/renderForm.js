@@ -1,7 +1,6 @@
 import renderInputRadio from "./renderInputRadio";
 import { onSubmit, onBlurName } from "../handlers/formHandlers";
 import { showTemplate, hideTemplate, TEMPLATE_DATA } from "../utils";
-// import { TEMPLATE_DATA } from "../utils/constants";
 
 const renderForm = (user) => {
   if (user) {
@@ -12,11 +11,21 @@ const renderForm = (user) => {
       TEMPLATE_DATA.formTemplate.templateId,
       TEMPLATE_DATA.formTemplate.templateContainerId
     );
+
     if (lockContainer) {
       hideTemplate(TEMPLATE_DATA.lockTemplate.containerId);
     }
 
     const form = document.querySelector("#form");
+
+    const name = localStorage.getItem("name");
+    const payment = localStorage.getItem("payment");
+
+    if (name && payment) {
+      form.name.value = name;
+      form.payment.value = payment;
+    }
+
     form.addEventListener("submit", onSubmit);
     form.name.addEventListener("blur", onBlurName);
     renderInputRadio();
