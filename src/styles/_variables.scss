@@ -1,6 +1,2 @@
-$font-size: 1rem;
-$font-family: "Inter", sans-serif;
-$background-color: #121212;
-$font-color: #dae0e0;
-$page-width: 650px;
-$btn-color: red;
+$primary-color: #00005c; // Change color here. C'mon, try it!
+$text-color: mix(#000, $primary-color, 64%);

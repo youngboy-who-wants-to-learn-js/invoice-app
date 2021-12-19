@@ -46,8 +46,8 @@
                   type="text"
                   id="name"
                   name="name"
+                  class="form__item-text"
                   placeholder="Please enter your first and last name..." />
-                <!-- <div class="validations-error">This is required field</div> -->
               </div>
 
               <div class="form__item">
@@ -56,6 +56,7 @@
                   type="text"
                   id="payment"
                   name="payment"
+                  class="form__item-text"
                   placeholder="Enter your payment details..." />
               </div>
 
@@ -66,22 +67,17 @@
                   step="any"
                   id="amount"
                   name="amount"
+                  class="form__item-text"
                   placeholder="Enter your total amount..." />
               </div>
 
               <div class="form__item">
-                <label for="date"
-                  >Date: (The last day of the selected month will be taken
-                  automatically)</label
-                >
-                <input
-                  type="date"
-                  id="date"
-                  name="date"
-                  placeholder="Enter date..." />
+                <div
+                  id="radio-labels-container"
+                  class="form__radio-labels-container"></div>
               </div>
 
-              <button type="submit" class="btn">Download pdf</button>
+              <button type="submit" class="btn">Download PDF</button>
             </form>
           </div>
         </template>

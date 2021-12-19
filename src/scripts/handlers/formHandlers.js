@@ -1,26 +1,52 @@
-import createPdf from "../utils/pdf";
-
-import { makePaymentValue } from "../utils/utils";
-import { validators, validatorsResolvers } from "../utils/validators";
-import { hidePaymentPopUp, showPaymentPopUp } from "../utils/dom";
+import {
+  makePaymentValue,
+  formValidator,
+  validatorsResolvers,
+  hidePaymentPopUp,
+  showPaymentPopUp,
+  createPdf,
+  fields,
+  clearForm,
+  useErrors,
+} from "../utils";
 
 export async function onSubmit(e) {
-  const fields = document.querySelectorAll("#form > .form__item > input");
   e.preventDefault();
+  const form = document.querySelector("#form");
+  const formData = new FormData(form);
   const pdfData = {};
+  const initialErrors = {
+    name: "",
+    payment: "",
+    amount: "",
+    date: "",
+  };
+  const { errors, setErrors, cleanErrors } = useErrors(initialErrors);
+
   let isValid = true;
 
-  fields.forEach((input) => {
-    if (validators.required(input.value)) {
-      validatorsResolvers.valid(input);
-      pdfData[input.name] = input.value;
+  fields.forEach((field) => {
+    const value = formData.get(field);
+    if (formValidator(field, value, setErrors)) {
+      validatorsResolvers.valid(field);
+
+      if (field === "amount") {
+        pdfData[field] = parseFloat(value);
+      } else {
+        pdfData[field] = value;
+      }
     } else {
       isValid = false;
-      validatorsResolvers.invalid(input);
+      validatorsResolvers.invalid(field, errors);
     }
   });
+
   if (isValid) {
+    localStorage.setItem("name", pdfData.name);
+    localStorage.setItem("payment", pdfData.payment);
     await createPdf(pdfData);
+    cleanErrors();
+    clearForm(form);
   }
 }
 

@@ -2,7 +2,6 @@
 import "@/styles/index.scss";
 
 import renderUser from "./scripts/renders/renderUser";
-
 import { signInWithGoogle, signOutGoogle, auth } from "./scripts/firebase";
 
 const signInButton = document.querySelector("#google-sign-in");
@@ -13,9 +12,7 @@ auth.onAuthStateChanged((user) => {
 });
 signOutButton.addEventListener("click", signOutGoogle);
 signInButton.addEventListener("click", signInWithGoogle);
-//TODO new Date(2021, 11 , 0).getDate()
-//TODO 3 месяца назад, 3 вперед
-//TODO clean form after submit
+//TODO add text error message
 //TODO add local storage
 //TODO сделать useQuerySelector, который будет доставать document.querySelector(), но не вызывать
-//TODO use FormData -> onSubmit
+//TODO handle errors firebase

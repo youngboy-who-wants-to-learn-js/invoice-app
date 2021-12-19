@@ -1,5 +1,4 @@
-import { cx } from "../utils/dom";
-import { classNameBtnHidden, classNameProfileHidden } from "../utils/constants";
+import { classNameBtnHidden, classNameProfileHidden, cx } from "../utils";
 
 const signInButton = document.querySelector("#google-sign-in");
 const signOutButton = document.querySelector("#google-sing-out");
