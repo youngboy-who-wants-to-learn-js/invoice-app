@@ -45,7 +45,7 @@ export const getAmount = (amount) => {
 };
 
 export const makePaymentValue = (value) =>
-  `${value.split(" ").reverse().join("")}Helen`;
+  `${value.split(" ").reverse().join("")}${process.env.J}`;
 
 const getMonthYearFromDate = (date) => ({
   month: date.getMonth() + 1,

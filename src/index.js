@@ -12,7 +12,4 @@ auth.onAuthStateChanged((user) => {
 });
 signOutButton.addEventListener("click", signOutGoogle);
 signInButton.addEventListener("click", signInWithGoogle);
-//TODO add text error message
-//TODO add local storage
 //TODO сделать useQuerySelector, который будет доставать document.querySelector(), но не вызывать
-//TODO handle errors firebase
