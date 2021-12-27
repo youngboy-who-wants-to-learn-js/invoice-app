@@ -90,10 +90,9 @@ export default async function createPdf({ name, payment, amount, date }) {
 
   download(
     myPdfBytes,
-    `Invoice ${DateHelpers.getMonthYear(
-      date,
-      "."
-    )} Helen ${DateHelpers.getMonth(date)}.pdf`,
+    `Invoice ${DateHelpers.getMonthYear(date, ".")} ${
+      process.env.J
+    } ${DateHelpers.getMonth(date)}.pdf`,
     "application/pdf"
   );
 }
