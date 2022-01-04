@@ -1,5 +1,7 @@
 import { MAP_NUMBER_TO_MONTH } from "./constants";
 
+const formatMonth = (month) => String(month).padStart(2, "0");
+
 export const getLastMonthDay = (year, month) =>
   new Date(year, month, 0).getDate();
 
@@ -17,11 +19,12 @@ const dateParserWrapper =
   };
 
 export const getFullDate = dateParserWrapper(
-  (date) => `${date.day}.${date.month}.${date.year}`
+  (date) => `${date.day}.${formatMonth(date.month)}.${date.year}`
 );
 
 export const getMonthYear = dateParserWrapper(
-  (date, separator = "/") => `${date.month}${separator}${date.year.slice(2)}`
+  (date, separator = "/") =>
+    `${formatMonth(date.month)}${separator}${date.year.slice(2)}`
 );
 
 const getMonthFromParsedDate = (date) => MAP_NUMBER_TO_MONTH[date.month];
