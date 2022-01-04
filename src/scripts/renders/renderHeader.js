@@ -14,7 +14,7 @@ const renderHeader = (user) => {
     profileEmail.textContent = user.email;
 
     if (user.photoURL) {
-      profileImage.src = user.photoURL;
+      profilePhoto.src = user.photoURL;
       cx.add(profileImage, classNameProfileHidden);
       cx.remove(profilePhoto, classNameProfileHidden);
     }
@@ -23,7 +23,7 @@ const renderHeader = (user) => {
     cx.add(signOutButton, classNameBtnHidden);
 
     profileEmail.textContent = "";
-    profileImage.src = "";
+    profilePhoto.src = "";
     cx.add(profilePhoto, classNameProfileHidden);
     cx.remove(profileImage, classNameProfileHidden);
   }
