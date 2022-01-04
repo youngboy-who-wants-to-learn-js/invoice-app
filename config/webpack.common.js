@@ -32,7 +32,7 @@ module.exports = {
       template: paths.src + "/markup/template.html",
       filename: "index.html",
     }),
-    new Dotenv(),
+    new Dotenv({ systemvars: true }),
   ],
   module: {
     rules: [
