@@ -12,5 +12,5 @@ auth.onAuthStateChanged((user) => {
 });
 signOutButton.addEventListener("click", signOutGoogle);
 signInButton.addEventListener("click", signInWithGoogle);
-console.log("test:", process.env.TEST);
+
 //TODO сделать useQuerySelector, который будет доставать document.querySelector(), но не вызывать
