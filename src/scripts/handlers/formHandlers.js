@@ -31,7 +31,7 @@ export async function onSubmit(e) {
       validatorsResolvers.valid(field);
 
       if (field === "amount") {
-        pdfData[field] = parseFloat(value);
+        pdfData[field] = parseFloat(value).toFixed(2);
       } else {
         pdfData[field] = value;
       }
