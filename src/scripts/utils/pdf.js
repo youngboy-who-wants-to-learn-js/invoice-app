@@ -8,7 +8,13 @@ import * as DateHelpers from "./utils";
 import TahomaBold from "../../fonts/TahomaBold.ttf";
 import CalibriBold from "../../fonts/calibri_bold.ttf";
 
-export default async function createPdf({ name, payment, amount, date }) {
+export default async function createPdf({
+  name,
+  payment,
+  amount,
+  date,
+  receiptmoneydate,
+}) {
   const myPdfDoc = await PDFDocument.create();
 
   const resFonts = await fetch(TahomaBold);
@@ -54,7 +60,7 @@ export default async function createPdf({ name, payment, amount, date }) {
     font: tahomaBold,
   });
 
-  page.drawText(DateHelpers.getFullDate(date), {
+  page.drawText(DateHelpers.getFullDate(receiptmoneydate), {
     x: 476,
     y: 645,
     size: 10,
