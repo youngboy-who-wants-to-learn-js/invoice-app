@@ -42,6 +42,7 @@ export async function onSubmit(e) {
   });
 
   if (isValid) {
+    console.log("pdfData", pdfData);
     localStorage.setItem("name", pdfData.name);
     localStorage.setItem("payment", pdfData.payment);
     await createPdf(pdfData);

@@ -166,7 +166,7 @@ export const classNameBtnHidden = "btn_hidden";
 export const classNameProfileHidden = "profile-info_hidden";
 export const classNameRadioLabel = "form__item-radio-label";
 
-export const fields = ["name", "payment", "amount", "date"];
+export const fields = ["name", "payment", "amount", "date", "receiptmoneydate"];
 
 export const ERROR_MESSAGE = {
   required: "This is required field",

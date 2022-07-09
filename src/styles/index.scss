@@ -137,6 +137,13 @@ body {
       padding-left: 10px;
     }
 
+    &-date-picker {
+      width: 100%;
+      height: 44px;
+      border-radius: 5px;
+      padding: 0px 8px;
+    }
+
     &-radio-label {
       display: flex;
       cursor: pointer;
@@ -230,6 +237,10 @@ input:hover {
   height: 300px;
   background-image: url("../images/lock1.svg");
   background-size: cover;
+}
+
+.pb-20 {
+  padding-bottom: 20px;
 }
 
 @media (min-width: 768px) {

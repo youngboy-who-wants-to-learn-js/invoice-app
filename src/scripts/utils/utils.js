@@ -7,8 +7,8 @@ export const getLastMonthDay = (year, month) =>
 
 // yyyy-month-day
 const parseDate = (date) => {
-  const [year, month] = date.split("-");
-  return { month, day: getLastMonthDay(year, month), year };
+  const [year, month, day] = date.split("-");
+  return { month, day, year };
 };
 
 const dateParserWrapper =
@@ -60,7 +60,7 @@ const minusMonth = (date, num) =>
 
 // return Array<{month: string, year: number}>
 export const generatePeriod = () => {
-  const MONTH_NUMBER = 6;
+  const MONTH_NUMBER = 12;
   return [...Array(MONTH_NUMBER)]
     .map((_, i) => MONTH_NUMBER - 1 - i)
     .reduce((acc, item) => {
